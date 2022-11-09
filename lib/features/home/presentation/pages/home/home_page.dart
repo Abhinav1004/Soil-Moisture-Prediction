@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/app_bar_custom_painter.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/examine_crop_area.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/top_button_group.dart';
@@ -11,7 +9,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color.fromRGBO(250, 250, 250, 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -50,8 +47,33 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 18,
           ),
-          const ExamineCropArea()
+          const ExamineCropArea(),
+          const SizedBox(
+            height: 18,
+          ),
+          _buildPsuedoText( "Gardens are not made by singing ‘Oh, how beautiful,’ and sitting in the shade. – Rudyard Kipling",),
+          const SizedBox(
+            height: 18,
+          ),
+          Center(
+            child: _buildPsuedoText("© Team Somadhan",),
+          )
         ],
+      ),
+    );
+  }
+
+  Widget _buildPsuedoText(String text){
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 42),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          color: Color.fromRGBO(182, 182, 182, 1),
+          fontSize: 10,
+          fontWeight: FontWeight.w500
+        ),
       ),
     );
   }
