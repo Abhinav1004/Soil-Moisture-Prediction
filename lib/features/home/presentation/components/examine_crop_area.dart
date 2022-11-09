@@ -111,30 +111,37 @@ class _ExamineCropAreaState extends State<ExamineCropArea> {
 
   Widget _buildButton(String image, String label){
     return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(249, 249, 249, 1),
-          borderRadius: BorderRadius.circular(15)
-        ),
-        height: 105,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              image,
-              height: 26,
+      child: Material(
+        borderRadius: BorderRadius.circular(15),
+        color: const Color.fromRGBO(249, 249, 249, 1),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(15),
+          onTap: (){},
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15)
             ),
-            const SizedBox(
-              height: 5,
+            height: 105,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  image,
+                  height: 26,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600
+                  ),
+                )
+              ],
             ),
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );
