@@ -24,65 +24,43 @@ class TopButtonGroup extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(
           children: [
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(
-                    "assets/icons/noto_potted-plant.png",
-                    height: 32,
-                  ),
-                  const Text(
-                    "Soil Description",
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500
-                    ),
-                  )
-                ],
-              ),
-            ),
+            _buildButton("assets/icons/noto_potted-plant.png", "Soil Description"),
             const VerticalDivider(
+              width: 1,
             ),
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(
-                    "assets/icons/fluent-emoji_bug.png",
-                    height: 32,
-                  ),
-                  const Text(
-                    "Rice Disease",
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500
-                    ),
-                  )
-                ],
-              ),
-            ),
+            _buildButton("assets/icons/fluent-emoji_bug.png", "Rice Disease"),
             const VerticalDivider(
+              width: 1,
             ),
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(
-                    "assets/icons/noto_sheaf-of-rice.png",
-                    height: 32,
-                  ),
-                  const Text(
-                    "Rice Description",
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500
-                    ),
-                  )
-                ],
-              ),
-            ),
+            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Rice Description")
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButton(String image, String label){
+    return Expanded(
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: (){},
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                image,
+                height: 32,
+              ),
+              Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w500
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
