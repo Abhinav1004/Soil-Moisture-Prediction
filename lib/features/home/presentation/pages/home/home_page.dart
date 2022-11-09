@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rice_disease_detect/core/custom_icon/botton_nav_icons.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/app_bar_custom_painter.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/examine_crop_area.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/top_button_group.dart';
@@ -9,6 +10,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 5,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: const Color.fromRGBO(228, 121, 121, 1),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(BottomNavIcons.akar_icons_home_alt1),
+            label: "home"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(BottomNavIcons.fluent_calendar_info_16_regular),
+            label: "Info"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(BottomNavIcons.carbon_settings_adjust),
+            label: "Settings"
+          )
+        ]
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
