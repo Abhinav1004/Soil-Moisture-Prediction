@@ -14,7 +14,7 @@ class TopButtonGroup extends StatelessWidget {
         borderRadius: BorderRadius.circular(23),
         boxShadow: const [
           BoxShadow(
-            color: Color.fromRGBO(158, 158, 158, 0.2),
+            color: Color.fromRGBO(158, 158, 158, 0.1),
             offset: Offset(0, 4),
             blurRadius: 4
           )
