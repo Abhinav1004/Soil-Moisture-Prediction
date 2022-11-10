@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rice_disease_detect/core/custom_icon/botton_nav_icons.dart';
-import 'package:rice_disease_detect/features/home/presentation/components/app_bar_custom_painter.dart';
+import 'package:rice_disease_detect/core/components/app_bar_custom_painter.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/examine_crop_area.dart';
 import 'package:rice_disease_detect/features/home/presentation/components/top_button_group.dart';
 
