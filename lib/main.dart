@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rice_disease_detect/features/home/presentation/pages/home/home_page.dart';
+import 'package:rice_disease_detect/features/reading/presentation/pages/reading/reading_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        "/": (_)=> const HomePage()
+        "/": (_)=> const HomePage(),
+        "/reading": (_)=> const ReadingPage()
       },
     );
   }
