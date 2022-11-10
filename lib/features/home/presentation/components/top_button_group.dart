@@ -24,27 +24,29 @@ class TopButtonGroup extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(
           children: [
-            _buildButton("assets/icons/noto_potted-plant.png", "Soil Description"),
+            _buildButton("assets/icons/noto_potted-plant.png", "Soil Description", context),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/fluent-emoji_bug.png", "Rice Disease"),
+            _buildButton("assets/icons/fluent-emoji_bug.png", "Rice Disease", context),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Rice Description")
+            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Rice Description", context)
           ],
         ),
       ),
     );
   }
 
-  Widget _buildButton(String image, String label){
+  Widget _buildButton(String image, String label, BuildContext ctx){
     return Expanded(
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: (){},
+          onTap: (){
+            Navigator.of(ctx).pushNamed("/reading");
+          },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
