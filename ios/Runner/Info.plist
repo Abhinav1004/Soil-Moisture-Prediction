@@ -43,6 +43,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>App needs camera permission to capture crop image from camera module</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App needs gallery permission to get crop image from local storage</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 </dict>
