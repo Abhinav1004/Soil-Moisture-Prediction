@@ -1,13 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rice_disease_detect/core/constants/enums.dart';
+import 'package:rice_disease_detect/features/home/data/repository/image_input_repository.dart';
+import 'package:rice_disease_detect/features/home/presentation/bloc/image_input_cubit.dart';
 
-class ExamineCropArea extends StatefulWidget {
+class ExamineCropArea extends StatelessWidget {
   const ExamineCropArea({Key? key}) : super(key: key);
 
   @override
-  State<ExamineCropArea> createState() => _ExamineCropAreaState();
+  Widget build(BuildContext context) {
+    return RepositoryProvider(
+      create: (context) => ImageInputRepositoryImp(),
+        child: BlocProvider(
+          create: (context) => ImageInputCubit(context.read<ImageInputRepositoryImp>()),
+          lazy: false,
+          child: const ExamineCropAreaView(),
+        ),
+    );
+  }
 }
 
-class _ExamineCropAreaState extends State<ExamineCropArea> {
+class ExamineCropAreaView extends StatefulWidget {
+  const ExamineCropAreaView({Key? key}) : super(key: key);
+
+  @override
+  State<ExamineCropAreaView> createState() => _ExamineCropAreaViewState();
+}
+
+class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -93,11 +113,11 @@ class _ExamineCropAreaState extends State<ExamineCropArea> {
             ),
             Row(
               children: [
-                _buildButton("assets/icons/bi_camera-fill.png", "Take Photo"),
+                _buildButton("assets/icons/bi_camera-fill.png", "Take Photo", ImageInputEnum.camera),
                 const SizedBox(
                   width: 16,
                 ),
-                _buildButton("assets/icons/bi_file-earmark-image-fill.png", "Upload Photo")
+                _buildButton("assets/icons/bi_file-earmark-image-fill.png", "Upload Photo", ImageInputEnum.gallery)
               ],
             ),
             const SizedBox(
@@ -109,14 +129,23 @@ class _ExamineCropAreaState extends State<ExamineCropArea> {
     );
   }
 
-  Widget _buildButton(String image, String label){
+  Widget _buildButton(String image, String label, ImageInputEnum type){
     return Expanded(
       child: Material(
         borderRadius: BorderRadius.circular(15),
         color: const Color.fromRGBO(249, 249, 249, 1),
         child: InkWell(
           borderRadius: BorderRadius.circular(15),
-          onTap: (){},
+          onTap: (){
+            switch (type) {
+              case ImageInputEnum.camera:
+                context.read<ImageInputCubit>().getImageFromCamera();
+                break;
+              case ImageInputEnum.gallery:
+                context.read<ImageInputCubit>().getImageFromGallery();
+                break;
+            }
+          },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15)
