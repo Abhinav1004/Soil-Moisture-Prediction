@@ -1,10 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:rice_disease_detect/features/examine/presentation/pages/management/management_dialog.dart';
 
 import '../../../../../core/components/app_bar_custom_painter.dart';
 
 class ExaminePage extends StatelessWidget {
-  const ExaminePage({Key? key}) : super(key: key);
+  const ExaminePage({Key? key, required this.imageFile}) : super(key: key);
+  final File imageFile;
 
   @override
   Widget build(BuildContext context) {
