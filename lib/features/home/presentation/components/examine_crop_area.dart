@@ -30,102 +30,109 @@ class ExamineCropAreaView extends StatefulWidget {
 class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 11),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20)
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+    return BlocListener<ImageInputCubit, ImageInputState>(
+      listener: (context, state) {
+        if(state is ImageInputCaptured){
+          Navigator.of(context).pushNamed("/examine");
+        }
+      },
+      child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 11),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20)
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Column(
               children: [
-                Column(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "assets/icons/scan_ico.png",
-                      height: 58,
+                    Column(
+                      children: [
+                        Image.asset(
+                          "assets/icons/scan_ico.png",
+                          height: 58,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Text(
+                          "Take a picture",
+                          style: TextStyle(
+                            color: Color.fromRGBO(91, 91, 91, 1),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500
+                          ),
+                        )
+                      ],
                     ),
-                    const SizedBox(
-                      height: 5,
+                    const Icon(Icons.chevron_right),
+                    Column(
+                      children: [
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Image.asset(
+                          "assets/icons/mobile_ico.png",
+                          height: 51,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text(
+                          "Get The result",
+                          style: TextStyle(
+                            color: Color.fromRGBO(91, 91, 91, 1),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500
+                          ),
+                        )
+                      ],
                     ),
-                    const Text(
-                      "Take a picture",
-                      style: TextStyle(
-                        color: Color.fromRGBO(91, 91, 91, 1),
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500
-                      ),
+                    const Icon(Icons.chevron_right),
+                    Column(
+                      children: [
+                        Image.asset(
+                          "assets/icons/fluent-emoji_health-worker.png",
+                          height: 54,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text(
+                          "Get diagnosis",
+                          style: TextStyle(
+                            color: Color.fromRGBO(91, 91, 91, 1),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500
+                          ),
+                        )
+                      ],
                     )
                   ],
                 ),
-                const Icon(Icons.chevron_right),
-                Column(
-                  children: [
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Image.asset(
-                      "assets/icons/mobile_ico.png",
-                      height: 51,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    const Text(
-                      "Get The result",
-                      style: TextStyle(
-                        color: Color.fromRGBO(91, 91, 91, 1),
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500
-                      ),
-                    )
-                  ],
-                ),
-                const Icon(Icons.chevron_right),
-                Column(
-                  children: [
-                    Image.asset(
-                      "assets/icons/fluent-emoji_health-worker.png",
-                      height: 54,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    const Text(
-                      "Get diagnosis",
-                      style: TextStyle(
-                        color: Color.fromRGBO(91, 91, 91, 1),
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            Row(
-              children: [
-                _buildButton("assets/icons/bi_camera-fill.png", "Take Photo", ImageInputEnum.camera),
                 const SizedBox(
-                  width: 16,
+                  height: 25,
                 ),
-                _buildButton("assets/icons/bi_file-earmark-image-fill.png", "Upload Photo", ImageInputEnum.gallery)
+                Row(
+                  children: [
+                    _buildButton("assets/icons/bi_camera-fill.png", "Take Photo", ImageInputEnum.camera),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    _buildButton("assets/icons/bi_file-earmark-image-fill.png", "Upload Photo", ImageInputEnum.gallery)
+                  ],
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
               ],
             ),
-            const SizedBox(
-              height: 8,
-            ),
-          ],
+          ),
         ),
-      ),
     );
   }
 
