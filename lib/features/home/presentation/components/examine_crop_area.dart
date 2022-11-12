@@ -33,7 +33,10 @@ class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
     return BlocListener<ImageInputCubit, ImageInputState>(
       listener: (context, state) {
         if(state is ImageInputCaptured){
-          Navigator.of(context).pushNamed("/examine");
+          Navigator.of(context).pushNamed(
+            "/examine",
+            arguments: state.imageFile
+          );
         }
       },
       child: Container(
