@@ -12,12 +12,14 @@ class ExamineMlUseCase{
 
   call() async {
     String? res = await Tflite.loadModel(
-      model: "assets/model/output.tflite",
-      labels: "assets/model/labels.txt",
+      model: "assets/model/model_unquant.tflite",
+      labels: "assets/model/labels_unquant.txt",
       numThreads: 1, // defaults to 1
       isAsset: true, // defaults to true, set to false to load resources outside assets
       useGpuDelegate: false // defaults to false, set to true to use GPU delegate
     );
+
+    print(res);
 
 
     var recognitions = await Tflite.runModelOnImage(
