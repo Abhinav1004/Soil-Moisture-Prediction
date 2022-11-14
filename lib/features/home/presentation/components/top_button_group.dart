@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
 
-class TopButtonGroup extends StatelessWidget {
+class TopButtonGroup extends StatefulWidget {
   const TopButtonGroup({Key? key}) : super(key: key);
+
+  @override
+  State<TopButtonGroup> createState() => _TopButtonGroupState();
+}
+
+class _TopButtonGroupState extends State<TopButtonGroup> {
+
+  void onSoilClick(){
+    Navigator.of(context).pushNamed("/reading/soil");
+  }
+
+  void onDiseaseClick(){
+    Navigator.of(context).pushNamed("/reading/disease");
+  }
+
+  void onPestClick(){
+    Navigator.of(context).pushNamed("/reading/pest");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,29 +42,27 @@ class TopButtonGroup extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(
           children: [
-            _buildButton("assets/icons/noto_potted-plant.png", "Soil Description", context),
+            _buildButton("assets/icons/noto_potted-plant.png", "Soil Description", onSoilClick),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/fluent-emoji_bug.png", "Rice Disease", context),
+            _buildButton("assets/icons/fluent-emoji_bug.png", "Rice Disease", onDiseaseClick),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Rice Description", context)
+            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Rice Pest", onPestClick)
           ],
         ),
       ),
     );
   }
 
-  Widget _buildButton(String image, String label, BuildContext ctx){
+  Widget _buildButton(String image, String label, VoidCallback onClick){
     return Expanded(
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: (){
-            Navigator.of(ctx).pushNamed("/reading");
-          },
+          onTap: onClick,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

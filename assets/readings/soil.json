@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Red sandy soil",
+    "subtitle": "Found in India, China, Canada, etc.",
+    "imageUrl": "soil/red sandy soil.jpeg",
+    "desc": "Red soil contains a high percentage of iron content, which is responsible for its color. This soil is deficient in nitrogen, humus, phosphoric acid, magnesium, and lime but fairly rich in potash, with its pH ranging from neutral to acidic."
+  },
+  {
+    "title": "Coastal Alluvial soil",
+    "subtitle": "Found in Udupi, Dakshina Kannada, etc",
+    "imageUrl": "soil/Coastal Alluvial soil.jpeg",
+    "desc": "Alluvium consists of silt, sand, clay, gravel and a good amount of organic matter. The texture of alluvial soil is loamy; it contains a mixture of sandy and clayey soils."
+  },
+  {
+    "title": "Red – Yellow soil ",
+    "subtitle": "Found in the Odisha and Chattisgarh, etc.",
+    "imageUrl": "soil/red yellow soil.jpeg",
+    "desc": "It is formed from igneous rock. Soils are loamy in deep depression and in uplands they consist of loose gravels, highly coarse material. Soils are deficient in phosphoric acid, organic matter and nitrogenous material but fairly rich in potash."
+  },
+  {
+    "title": "Red loamy soil",
+    "subtitle": "Found in Dungarpur, Banswara and Udaipur.",
+    "imageUrl": "soil/red loamy soil.jpeg",
+    "desc": "These soils are found to be cloddy, porous, and deficient in concretionary materials. These soils don't have enough nitrogen, phosphorus, and various organic materials. These soils contain a sufficient amount of potash."
+  },
+  {
+    "title": "Laterite soil",
+    "subtitle": "Found in Western Ghats, Eastern Ghats, etc.",
+    "imageUrl": "soil/Laterite Soil.jpeg",
+    "desc": "Laterite soil is rich in aluminium and iron, formed in wet and hot tropical areas. Almost all laterites are rusty red due to the presence of iron oxides. These soils are acidic in nature and coarse and crumbly in texture."
+  }
+]

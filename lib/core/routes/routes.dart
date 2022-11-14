@@ -12,9 +12,17 @@ class Routes{
         return MaterialPageRoute(builder: (context) {
           return const HomePage();
         });
-      case "/reading":
+      case "/reading/soil":
         return MaterialPageRoute(builder: (context) {
-          return const ReadingPage();
+          return  const ReadingPage(readingJson: "soil");
+        });
+      case "/reading/disease":
+        return MaterialPageRoute(builder: (context) {
+          return  const ReadingPage(readingJson: "disease");
+        });
+      case "/reading/pest":
+        return MaterialPageRoute(builder: (context) {
+          return  const ReadingPage(readingJson: "pest");
         });
       case "/examine":
         if(settings.arguments is File){

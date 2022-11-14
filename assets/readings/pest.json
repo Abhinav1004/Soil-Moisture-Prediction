@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Rice weevil",
+    "subtitle": "Sitophilus oryzae",
+    "imageUrl": "pest/rice weevil.jpeg",
+    "desc": "The insect attacks during spikelet stage of rice crop. Both nymphs and adults suck the content out of grains from pre-flowering spikelets to soft dough stage."
+  },
+  {
+    "title": "Gall Gnats",
+    "subtitle": "Cecidomyiidae",
+    "imageUrl": "pest/gail grant.jpeg",
+    "desc": "Gall midge maggot bore into bud or stalk of rice plant and feeds on internal content which leads to formation of tubular gall at the base of the tillers."
+  },
+  {
+    "title": "Whitebacked plant- hopper",
+    "subtitle": "Sogatella furcifera",
+    "imageUrl": "pest/white backed hooper.jpeg",
+    "desc": "White backed plant hopper is more abundant during the early stage of the growth of rice crop, especially in nurseries."
+  },
+  {
+    "title": "Mealybug",
+    "subtitle": "Pseudococcidae",
+    "imageUrl": "pest/mealy bug.jpeg",
+    "desc": "The insect attacks during spikelet stage of rice crop. Both nymphs and adults suck the content out of grains from pre-flowering spikelets to soft dough stage."
+  }
+]
