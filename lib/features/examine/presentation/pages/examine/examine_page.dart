@@ -1,12 +1,28 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rice_disease_detect/features/examine/presentation/bloc/examine_cubit.dart';
 import 'package:rice_disease_detect/features/examine/presentation/pages/management/management_dialog.dart';
 
 import '../../../../../core/components/app_bar_custom_painter.dart';
 
 class ExaminePage extends StatelessWidget {
   const ExaminePage({Key? key, required this.imageFile}) : super(key: key);
+  final File imageFile;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      lazy: false,
+      create: (context) => ExamineCubit()
+        ..startExamine(imageFile),
+      child: ExaminePageView(imageFile: imageFile),
+    );
+  }
+}
+class ExaminePageView extends StatelessWidget {
+  const ExaminePageView({Key? key, required this.imageFile}) : super(key: key);
   final File imageFile;
 
   @override
@@ -45,8 +61,8 @@ class ExaminePage extends StatelessWidget {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(23),
-                          child: Image.asset(
-                            "assets/images/image2.png",
+                          child: Image.file(
+                            imageFile,
                             height: 196,
                             width: MediaQuery.of(context).size.width-40,
                             fit: BoxFit.cover,
