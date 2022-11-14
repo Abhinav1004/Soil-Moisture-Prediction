@@ -13,3 +13,10 @@ class DataFetchingException extends BaseException{
     "Data Fetching Exception"
   );
 }
+
+class MachineLearningRelException extends BaseException{
+  MachineLearningRelException(String message):super(
+    message,
+    "Machine learning relative exception"
+  );
+}

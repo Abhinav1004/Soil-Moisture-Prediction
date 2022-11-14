@@ -11,8 +11,8 @@ class ExamineStarted extends ExamineState {
 }
 
 class ExamineDone extends ExamineState {
-  final List report;
-  ExamineDone(this.report);
+  final List<ExamineMlModel> prediction;
+  ExamineDone(this.prediction);
 }
 
 class ExamineError extends ExamineState {

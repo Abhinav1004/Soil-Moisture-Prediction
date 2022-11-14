@@ -82,45 +82,53 @@ class ExaminePageView extends StatelessWidget {
                       const SizedBox(
                         height: 27,
                       ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        padding: EdgeInsets.zero,
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 17),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 53 * MediaQuery.of(context).textScaleFactor,
-                                  width: 53 * MediaQuery.of(context).textScaleFactor,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    borderRadius: BorderRadius.circular(100)
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: const Text(
-                                    "98%",
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromRGBO(91, 91, 91, 1)
+                      BlocBuilder<ExamineCubit, ExamineState>(
+                        builder: (context, state) {
+                          if(state is ExamineStarted){
+                            return const CircularProgressIndicator();
+                          }
+                          var pred = (state as ExamineDone).prediction;
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.zero,
+                            itemCount: pred.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.only(bottom: 17),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: (index==0? 66 : 43) * MediaQuery.of(context).textScaleFactor,
+                                      width: (index==0? 66 : 43) * MediaQuery.of(context).textScaleFactor,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(),
+                                        borderRadius: BorderRadius.circular(100)
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "${pred[index].confidence}%",
+                                        style: TextStyle(
+                                          fontSize: index==0?15:10,
+                                          fontWeight: FontWeight.w500,
+                                          color: const Color.fromRGBO(91, 91, 91, 1)
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    const SizedBox(
+                                      width: 11,
+                                    ),
+                                    Text(
+                                      pred[index].label,
+                                      style: TextStyle(
+                                        fontSize: index==0?15:10,
+                                        fontWeight: FontWeight.w500,
+                                        color: const  Color.fromRGBO(91, 91, 91, 1)
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                const SizedBox(
-                                  width: 11,
-                                ),
-                                const Text(
-                                  "Bacterial Blight",
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color.fromRGBO(91, 91, 91, 1)
-                                  ),
-                                )
-                              ],
-                            ),
+                              );
+                            },
                           );
                         },
                       ),

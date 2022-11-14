@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:rice_disease_detect/core/error/exception.dart';
+import 'package:rice_disease_detect/features/examine/data/models/examine_ml_model.dart';
 import 'package:tflite/tflite.dart';
 
 
@@ -29,8 +31,14 @@ class ExamineMlUseCase{
 
     debugPrint(recognitions.toString());
 
-    
+    Tflite.close();
 
-    await Tflite.close();
+    if(recognitions==null){
+      throw MachineLearningRelException("Cannot recognise the image");
+    }
+
+    List<ExamineMlModel> predictions = recognitions.map((e) => ExamineMlModel.fromMap(Map<String, dynamic>.from(e))).toList();
+
+    return predictions;
   }
 }
