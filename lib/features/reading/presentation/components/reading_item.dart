@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rice_disease_detect/features/reading/presentation/bloc/selected_item_reading_cubit.dart';
+import 'package:rice_disease_detect/features/reading/presentation/bloc/selected_item/selected_item_reading_cubit.dart';
 
 class ReadingItem extends StatelessWidget {
   const ReadingItem({Key? key, required this.isSelected, required this.index}) : super(key: key);

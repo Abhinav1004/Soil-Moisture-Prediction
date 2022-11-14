@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rice_disease_detect/features/reading/presentation/bloc/selected_item_reading_cubit.dart';
 import 'package:rice_disease_detect/features/reading/presentation/components/reading_item.dart';
 
 import '../../../../../core/components/app_bar_custom_painter.dart';
+import '../../bloc/selected_item/selected_item_reading_cubit.dart';
 
 class ReadingPage extends StatelessWidget {
   const ReadingPage({Key? key}) : super(key: key);
