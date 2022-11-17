@@ -10,26 +10,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 5,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: const Color.fromRGBO(228, 121, 121, 1),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(BottomNavIcons.akar_icons_home_alt1),
-            label: "home"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(BottomNavIcons.fluent_calendar_info_16_regular),
-            label: "Info"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(BottomNavIcons.carbon_settings_adjust),
-            label: "Settings"
-          )
-        ]
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
