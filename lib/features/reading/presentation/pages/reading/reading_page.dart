@@ -157,7 +157,7 @@ class ReadingPageView extends StatelessWidget {
                           height: 18,
                         ),
                         Center(
-                          child: _buildPsuedoText("© Team Somadhan", context),
+                          child: _buildPsuedoText("© Team The Hack Elite", context),
                         ),
                         const SizedBox(
                           height: 60,

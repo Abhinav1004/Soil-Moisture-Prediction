@@ -77,7 +77,7 @@ class HomePage extends StatelessWidget {
             height: 18,
           ),
           Center(
-            child: _buildPsuedoText("© Team Somadhan",),
+            child: _buildPsuedoText("© Team The Hack Elite",),
           )
         ],
       ),
