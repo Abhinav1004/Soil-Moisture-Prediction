@@ -1,4 +1,4 @@
-import 'package:rice_disease_detect/features/reading/data/models/reading_model.dart';
+import 'package:soil_moisture/features/reading/data/models/reading_model.dart';
 
 abstract class ReadingRepository{
   Future<List<ReadingModel>> getSoilReading();

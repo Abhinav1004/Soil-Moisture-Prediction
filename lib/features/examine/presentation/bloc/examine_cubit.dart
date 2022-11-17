@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:rice_disease_detect/features/examine/data/models/examine_ml_model.dart';
-import 'package:rice_disease_detect/features/examine/domain/usecase/examine_ml_usecase.dart';
+import 'package:soil_moisture/features/examine/data/models/examine_ml_model.dart';
+import 'package:soil_moisture/features/examine/domain/usecase/examine_ml_usecase.dart';
 
 part 'examine_state.dart';
 

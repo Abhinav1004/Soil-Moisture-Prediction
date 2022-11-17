@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rice_disease_detect/features/reading/data/models/reading_model.dart';
-import 'package:rice_disease_detect/features/reading/presentation/bloc/selected_item/selected_item_reading_cubit.dart';
+import 'package:soil_moisture/features/reading/data/models/reading_model.dart';
+import 'package:soil_moisture/features/reading/presentation/bloc/selected_item/selected_item_reading_cubit.dart';
 
 class ReadingItem extends StatelessWidget {
   const ReadingItem({Key? key, required this.isSelected, required this.index, required this.reading}) : super(key: key);

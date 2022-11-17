@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:rice_disease_detect/core/error/exception.dart';
-import 'package:rice_disease_detect/features/home/domain/repository/image_input_repository.dart';
+import 'package:soil_moisture/core/error/exception.dart';
+import 'package:soil_moisture/features/home/domain/repository/image_input_repository.dart';
 
 class ImageInputRepositoryImp extends ImageInputRepository{
   final ImagePicker _picker = ImagePicker();

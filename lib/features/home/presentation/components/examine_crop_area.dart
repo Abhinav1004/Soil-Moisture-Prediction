@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rice_disease_detect/core/constants/enums.dart';
-import 'package:rice_disease_detect/features/home/data/repository/image_input_repository.dart';
-import 'package:rice_disease_detect/features/home/presentation/bloc/image_input_cubit.dart';
+import 'package:soil_moisture/core/constants/enums.dart';
+import 'package:soil_moisture/features/home/data/repository/image_input_repository.dart';
+import 'package:soil_moisture/features/home/presentation/bloc/image_input_cubit.dart';
 
 class ExamineCropArea extends StatelessWidget {
   const ExamineCropArea({Key? key}) : super(key: key);

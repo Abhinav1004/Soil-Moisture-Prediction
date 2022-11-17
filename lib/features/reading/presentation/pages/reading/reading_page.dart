@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rice_disease_detect/features/reading/data/repository/reading_repository.dart';
-import 'package:rice_disease_detect/features/reading/domain/repository/reading_repository.dart';
-import 'package:rice_disease_detect/features/reading/presentation/bloc/reading/reading_cubit.dart';
-import 'package:rice_disease_detect/features/reading/presentation/components/reading_item.dart';
+import 'package:soil_moisture/features/reading/data/repository/reading_repository.dart';
+import 'package:soil_moisture/features/reading/domain/repository/reading_repository.dart';
+import 'package:soil_moisture/features/reading/presentation/bloc/reading/reading_cubit.dart';
+import 'package:soil_moisture/features/reading/presentation/components/reading_item.dart';
 
 import '../../../../../core/components/app_bar_custom_painter.dart';
 import '../../bloc/selected_item/selected_item_reading_cubit.dart';

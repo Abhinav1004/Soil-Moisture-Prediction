@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:rice_disease_detect/features/examine/presentation/pages/examine/examine_page.dart';
-import 'package:rice_disease_detect/features/home/presentation/pages/home/home_page.dart';
-import 'package:rice_disease_detect/features/reading/presentation/pages/reading/reading_page.dart';
+
+import '../../features/examine/presentation/pages/examine/examine_page.dart';
+import '../../features/home/presentation/pages/home/home_page.dart';
+import '../../features/reading/presentation/pages/reading/reading_page.dart';
 
 class Routes{
   static Route<dynamic>? onGenerateRoute(RouteSettings settings){

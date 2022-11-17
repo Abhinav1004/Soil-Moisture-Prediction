@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:rice_disease_detect/features/home/domain/repository/image_input_repository.dart';
+import 'package:soil_moisture/features/home/domain/repository/image_input_repository.dart';
 
 part 'image_input_state.dart';
 

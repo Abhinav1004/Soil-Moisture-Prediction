@@ -1,4 +1,4 @@
-package com.example.rice_disease_detect
+package com.example.soil_moisture
 
 import io.flutter.embedding.android.FlutterActivity
 

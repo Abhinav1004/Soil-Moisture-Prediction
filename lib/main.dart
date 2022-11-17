@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rice_disease_detect/core/observer/custom_bloc_observer.dart';
-import 'package:rice_disease_detect/core/routes/routes.dart';
+
+import 'core/observer/custom_bloc_observer.dart';
+import 'core/routes/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rice Disease Detector',
+      title: 'Soil Moisture Detector',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

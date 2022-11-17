@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rice_disease_detect/features/examine/presentation/bloc/examine_cubit.dart';
-import 'package:rice_disease_detect/features/examine/presentation/pages/management/management_dialog.dart';
+import 'package:soil_moisture/features/examine/presentation/bloc/examine_cubit.dart';
+import 'package:soil_moisture/features/examine/presentation/pages/management/management_dialog.dart';
 
 import '../../../../../core/components/app_bar_custom_painter.dart';
 

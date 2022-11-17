@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:rice_disease_detect/features/reading/data/models/reading_model.dart';
-import 'package:rice_disease_detect/features/reading/domain/repository/reading_repository.dart';
+import 'package:soil_moisture/features/reading/data/models/reading_model.dart';
+import 'package:soil_moisture/features/reading/domain/repository/reading_repository.dart';
 
 part 'reading_state.dart';
 

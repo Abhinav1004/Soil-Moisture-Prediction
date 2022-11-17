@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:rice_disease_detect/core/error/exception.dart';
-import 'package:rice_disease_detect/features/examine/data/models/examine_ml_model.dart';
+import 'package:soil_moisture/core/error/exception.dart';
+import 'package:soil_moisture/features/examine/data/models/examine_ml_model.dart';
 import 'package:tflite/tflite.dart';
 
 

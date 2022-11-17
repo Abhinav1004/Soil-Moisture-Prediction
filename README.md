@@ -1,4 +1,4 @@
-# rice_disease_detect
+# soil_moisture
 
 A new Flutter project.
 

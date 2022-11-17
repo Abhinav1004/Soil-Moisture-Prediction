@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rice_disease_detect/features/reading/data/models/reading_model.dart';
-import 'package:rice_disease_detect/features/reading/domain/repository/reading_repository.dart';
+import 'package:soil_moisture/features/reading/data/models/reading_model.dart';
+import 'package:soil_moisture/features/reading/domain/repository/reading_repository.dart';
 
 class ReadingRepositoryImp extends ReadingRepository{
   @override

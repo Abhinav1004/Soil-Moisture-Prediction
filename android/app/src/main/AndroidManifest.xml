@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rice_disease_detect">
+    package="com.example.soil_moisture">
    <application
-        android:label="rice_disease_detect"
+        android:label="soil_moisture"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
