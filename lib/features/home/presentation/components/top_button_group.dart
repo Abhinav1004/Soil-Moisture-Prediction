@@ -42,15 +42,15 @@ class _TopButtonGroupState extends State<TopButtonGroup> {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(
           children: [
-            _buildButton("assets/icons/noto_potted-plant.png", "Soil Description", onSoilClick),
+            _buildButton("assets/icons/noto_potted-plant.png", "Soil Type", onSoilClick),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/fluent-emoji_bug.png", "Rice Disease", onDiseaseClick),
+            _buildButton("assets/icons/fluent-emoji_bug.png", "Soil Insect", onDiseaseClick),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Rice Pest", onPestClick)
+            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Soil Plants", onPestClick)
           ],
         ),
       ),
@@ -69,6 +69,9 @@ class _TopButtonGroupState extends State<TopButtonGroup> {
               Image.asset(
                 image,
                 height: 32,
+              ),
+              const SizedBox(
+                height: 2,
               ),
               Text(
                 label,
