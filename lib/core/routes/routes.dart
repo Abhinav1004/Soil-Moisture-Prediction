@@ -17,9 +17,9 @@ class Routes{
         return MaterialPageRoute(builder: (context) {
           return  const ReadingPage(readingJson: "soil");
         });
-      case "/reading/disease":
+      case "/reading/plant":
         return MaterialPageRoute(builder: (context) {
-          return  const ReadingPage(readingJson: "disease");
+          return  const ReadingPage(readingJson: "plant");
         });
       case "/reading/pest":
         return MaterialPageRoute(builder: (context) {

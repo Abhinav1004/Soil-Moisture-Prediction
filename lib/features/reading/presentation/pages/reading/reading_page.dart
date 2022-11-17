@@ -75,15 +75,15 @@ class ReadingPageView extends StatelessWidget {
                               switch (readingJson) {
                                 case "soil":
                                   image = "assets/icons/noto_potted-plant.png";
-                                  title = "Soil Description";
-                                  break;
-                                case "disease":
-                                  image = "assets/icons/fluent-emoji_bug.png";
-                                  title = "Rice Disease";
+                                  title = "Soil Type";
                                   break;
                                 case "pest":
+                                  image = "assets/icons/fluent-emoji_bug.png";
+                                  title = "Soil Insect";
+                                  break;
+                                case "plant":
                                   image = "assets/icons/noto_sheaf-of-rice.png";
-                                  title = "Rice Pest";
+                                  title = "Soil Plants";
                               }
                               return Column(
                                 children: [

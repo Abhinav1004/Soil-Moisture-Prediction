@@ -64,7 +64,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/images/soil/
-    - assets/images/disease/
+    - assets/images/plant/
     - assets/images/pest/
     - assets/model/
     - assets/readings/

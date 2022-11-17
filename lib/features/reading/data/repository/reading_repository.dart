@@ -15,8 +15,8 @@ class ReadingRepositoryImp extends ReadingRepository{
   }
 
   @override
-  Future<List<ReadingModel>> getRiceDiseaseReading() async {
-    return (await rootBundle.loadStructuredData("assets/readings/disease.json", (value) async {
+  Future<List<ReadingModel>> getPlantReading() async {
+    return (await rootBundle.loadStructuredData("assets/readings/plant.json", (value) async {
       List soils = json.decode(value);
       return soils.map((e) => ReadingModel.fromMap(e));
     })).toList();

@@ -19,10 +19,10 @@ class ReadingCubit extends Cubit<ReadingState> {
     }
   }
 
-  loadRiceDiseaseReading() async {
+  loadPlantReading() async {
     emit(ReadingLoading());
     try{
-      var reading = await repository.getRiceDiseaseReading();
+      var reading = await repository.getPlantReading();
       emit(ReadingLoaded(reading));
     }on Exception catch(err){
       emit(ReadingError(err));
@@ -47,8 +47,8 @@ class ReadingCubit extends Cubit<ReadingState> {
       case "pest":
         loadPestReading();
         break;
-      case "disease":
-        loadRiceDiseaseReading();
+      case "plant":
+        loadPlantReading();
         break;
     }
   }

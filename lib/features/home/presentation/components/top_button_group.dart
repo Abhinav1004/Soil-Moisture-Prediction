@@ -13,8 +13,8 @@ class _TopButtonGroupState extends State<TopButtonGroup> {
     Navigator.of(context).pushNamed("/reading/soil");
   }
 
-  void onDiseaseClick(){
-    Navigator.of(context).pushNamed("/reading/disease");
+  void onPlantClick(){
+    Navigator.of(context).pushNamed("/reading/plant");
   }
 
   void onPestClick(){
@@ -46,11 +46,11 @@ class _TopButtonGroupState extends State<TopButtonGroup> {
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/fluent-emoji_bug.png", "Soil Insect", onDiseaseClick),
+            _buildButton("assets/icons/fluent-emoji_bug.png", "Soil Insect", onPestClick),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Soil Plants", onPestClick)
+            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Soil Plants", onPlantClick)
           ],
         ),
       ),
