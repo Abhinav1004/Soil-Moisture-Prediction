@@ -1,4 +1,4 @@
-Bacterialblight 
-Blast
-Brownspot
-Tungro
+Dry
+Loamy
+Regular
+Wet
