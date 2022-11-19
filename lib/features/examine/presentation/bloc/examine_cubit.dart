@@ -15,7 +15,10 @@ class ExamineCubit extends Cubit<ExamineState> {
     try{
       ExamineMlUseCase examineMlUseCase = ExamineMlUseCase(imageFile);
       List<ExamineMlModel> predictions = await examineMlUseCase();
-      emit(ExamineDone(predictions));
+      predictions.sort((a, b) {
+        return b.confidence - a.confidence;
+      },);
+      emit(ExamineDone(predictions[0].label));
     }on Exception catch(err){
       emit(ExamineError(err));
     }

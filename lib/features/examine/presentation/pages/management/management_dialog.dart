@@ -50,7 +50,7 @@ class ManagementDialog extends StatelessWidget {
             height: 20,
           ),
           const Text(
-            "Bacterial Blight",
+            "High Moisture",
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w500,
@@ -82,7 +82,7 @@ class ManagementDialog extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            "Apply additional 5 kg muriate of potash (MOP) per 33 decimal area if the disease symptoms are seen"
+                            "Drain out water and dry the field for 7-10 days"
                           ),
                         ),
                       ],

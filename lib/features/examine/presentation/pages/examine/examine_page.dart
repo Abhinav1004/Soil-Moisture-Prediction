@@ -87,7 +87,7 @@ class ExaminePageView extends StatelessWidget {
                           if(state is ExamineStarted){
                             return const CircularProgressIndicator();
                           }
-                          var pred = (state as ExamineDone).prediction;
+                          var pred = (state as ExamineDone).moisture;
                           return Row(
                             children: [
                               Container(
@@ -99,7 +99,7 @@ class ExaminePageView extends StatelessWidget {
                                 ),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  "High",
+                                  pred,
                                   style: const TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
@@ -114,7 +114,7 @@ class ExaminePageView extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "\"High\" water concentration",
+                                    "\"$pred\" water concentration",
                                     style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w500,
