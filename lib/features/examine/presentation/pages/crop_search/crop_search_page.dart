@@ -60,6 +60,9 @@ class _CropSearchBottomSheetState extends State<CropSearchBottomSheet> {
               children: [
                 Expanded(
                   child: TextField(
+                    onChanged: ((value) {
+                      context.read<RecommedCropsCubit>().search(value);
+                    }),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(

@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-
 part 'recommed_crops_state.dart';
 
 class RecommedCropsCubit extends Cubit<RecommedCropsState> {
@@ -93,7 +92,15 @@ class RecommedCropsCubit extends Cubit<RecommedCropsState> {
     var result = soilMoistureDict[moisture]??[];
     print(result);
     var selectedSoilTypeDict = Map.from(soilTypeDict);
-    selectedSoilTypeDict.removeWhere((key, value) => value!=soilType);
+    if(soilType.isNotEmpty){
+      selectedSoilTypeDict.removeWhere((key, value) => value!=soilType);
+    }
     var mainResult = result.where((element) => selectedSoilTypeDict.containsKey(element)).toList();
+    if(query.isEmpty){
+      emit(RecommedCropsFilter(moisture: moisture, type: soilType, result: mainResult));
+      return;
+    }
+    var output = mainResult.where((element) => element.startsWith(query)).toList();
+    emit(RecommedCropsFilter(moisture: moisture, type: soilType, result: output));
   }
 }
