@@ -135,16 +135,10 @@ class ExaminePageView extends StatelessWidget {
                                   // LinearProgressIndicator(value: pred.confidence.toDouble(),)
                                   Builder(
                                     builder: (context) {
-                                      Color color;
                                       Color txtColor;
                                       if(pred.confidence<30){
-                                        color = Colors.red;
-                                        txtColor = Colors.white;
-                                      }else if(pred.confidence<70){
-                                        color = Colors.yellow;
                                         txtColor = Colors.black;
                                       }else{
-                                        color = Colors.green;
                                         txtColor = Colors.white;
                                       }
                                       return Container(
