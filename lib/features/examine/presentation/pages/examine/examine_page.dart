@@ -175,30 +175,55 @@ class ExaminePageView extends StatelessWidget {
                       const SizedBox(
                         height: 27,
                       ),
-                      // ElevatedButton(
-                      //   onPressed: (){
-                      //     ManagementDialog.showDialog(context);
-                      //   }, 
-                      //   style: ElevatedButton.styleFrom(
-                      //     minimumSize: const Size(
-                      //       double.infinity,
-                      //       64
-                      //     ),
-                      //     primary: const Color.fromRGBO(228, 121, 121, 1),
-                      //     shape: RoundedRectangleBorder(
-                      //       borderRadius: BorderRadius.circular(9)
-                      //     ),
-                      //     elevation: 0
-                      //   ),
-                      //   child: const Text(
-                      //     "Management",
-                      //     style: TextStyle(
-                      //       color: Colors.white,
-                      //       fontSize: 13,
-                      //       fontWeight: FontWeight.w600
-                      //     ),
-                      //   )
-                      // )
+                      Row(
+                        children: [
+                          const Text(
+                            "Was it helful?"
+                          ),
+                          IconButton(
+                            onPressed: (){}, 
+                            icon: const Icon(Icons.thumb_up, color: Colors.green,)
+                          ),
+                          IconButton(
+                            onPressed: (){}, 
+                            icon: const Icon(Icons.thumb_down, color: Colors.red,)
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 27,
+                      ),
+                      BlocBuilder<ExamineCubit, ExamineState>(
+                        builder: (context, state) {
+                          if(state is! ExamineDone){
+                            return const SizedBox();
+                          }
+                          return ElevatedButton(
+                            onPressed: state.moisture.label.toLowerCase()=="none"?null: (){
+                              ManagementDialog.showDialog(context, state.moisture.label);
+                            }, 
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size(
+                                double.infinity,
+                                64
+                              ),
+                              primary: const Color.fromRGBO(228, 121, 121, 1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(9)
+                              ),
+                              elevation: 0
+                            ),
+                            child: const Text(
+                              "Management",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600
+                              ),
+                            )
+                          );
+                        },
+                      )
                     ],
                   ),
                 )
