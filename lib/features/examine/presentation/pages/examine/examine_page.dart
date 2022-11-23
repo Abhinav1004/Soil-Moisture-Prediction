@@ -99,7 +99,7 @@ class ExaminePageView extends StatelessWidget {
                                 ),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  pred,
+                                  pred.label,
                                   style: const TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
@@ -114,7 +114,7 @@ class ExaminePageView extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "\"$pred\" water concentration",
+                                    "\"${pred.label}\" water concentration",
                                     style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w500,
@@ -122,16 +122,50 @@ class ExaminePageView extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 4,
+                                    height: 7,
                                   ),
-                                  Text(
-                                    "Danger, too much water concetration",
-                                    style: const TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w500,
-                                      color:  Color.fromRGBO(146, 0, 0, 1)
-                                    ),
-                                  ),
+                                  // Text(
+                                  //   "Danger, too much water concetration",
+                                  //   style: const TextStyle(
+                                  //     fontSize: 10,
+                                  //     fontWeight: FontWeight.w500,
+                                  //     color:  Color.fromRGBO(146, 0, 0, 1)
+                                  //   ),
+                                  // ),
+                                  // LinearProgressIndicator(value: pred.confidence.toDouble(),)
+                                  Builder(
+                                    builder: (context) {
+                                      Color color;
+                                      Color txtColor;
+                                      if(pred.confidence<30){
+                                        color = Colors.red;
+                                        txtColor = Colors.white;
+                                      }else if(pred.confidence<70){
+                                        color = Colors.yellow;
+                                        txtColor = Colors.black;
+                                      }else{
+                                        color = Colors.green;
+                                        txtColor = Colors.white;
+                                      }
+                                      return Container(
+                                        // height: 18,
+                                        width: (MediaQuery.of(context).size.width - ((80 * MediaQuery.of(context).textScaleFactor) + 20) - 40)*pred.confidence/100,
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue.withOpacity(pred.confidence.toDouble()/100),
+                                          borderRadius: BorderRadius.circular(5)
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            "${pred.confidence.toStringAsFixed(2)}%",
+                                            style: TextStyle(
+                                              color: txtColor
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                  )
                                 ],
                               )
                             ],
@@ -141,30 +175,30 @@ class ExaminePageView extends StatelessWidget {
                       const SizedBox(
                         height: 27,
                       ),
-                      ElevatedButton(
-                        onPressed: (){
-                          ManagementDialog.showDialog(context);
-                        }, 
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(
-                            double.infinity,
-                            64
-                          ),
-                          primary: const Color.fromRGBO(228, 121, 121, 1),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(9)
-                          ),
-                          elevation: 0
-                        ),
-                        child: const Text(
-                          "Management",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600
-                          ),
-                        )
-                      )
+                      // ElevatedButton(
+                      //   onPressed: (){
+                      //     ManagementDialog.showDialog(context);
+                      //   }, 
+                      //   style: ElevatedButton.styleFrom(
+                      //     minimumSize: const Size(
+                      //       double.infinity,
+                      //       64
+                      //     ),
+                      //     primary: const Color.fromRGBO(228, 121, 121, 1),
+                      //     shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(9)
+                      //     ),
+                      //     elevation: 0
+                      //   ),
+                      //   child: const Text(
+                      //     "Management",
+                      //     style: TextStyle(
+                      //       color: Colors.white,
+                      //       fontSize: 13,
+                      //       fontWeight: FontWeight.w600
+                      //     ),
+                      //   )
+                      // )
                     ],
                   ),
                 )

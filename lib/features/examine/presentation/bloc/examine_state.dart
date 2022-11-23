@@ -11,7 +11,7 @@ class ExamineStarted extends ExamineState {
 }
 
 class ExamineDone extends ExamineState {
-  final String moisture;
+  final ExamineMlModel moisture;
   ExamineDone(this.moisture);
 }
 

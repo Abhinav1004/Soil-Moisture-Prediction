@@ -18,7 +18,7 @@ class ExamineCubit extends Cubit<ExamineState> {
       predictions.sort((a, b) {
         return b.confidence - a.confidence;
       },);
-      emit(ExamineDone(predictions[0].label));
+      emit(ExamineDone(predictions[0]));
     }on Exception catch(err){
       emit(ExamineError(err));
     }
