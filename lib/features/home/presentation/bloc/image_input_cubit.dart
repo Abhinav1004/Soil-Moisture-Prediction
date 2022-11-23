@@ -3,6 +3,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:soil_moisture/features/home/domain/repository/image_input_repository.dart';
 
+import '../../../../core/constants/enums.dart';
+
 part 'image_input_state.dart';
 
 class ImageInputCubit extends Cubit<ImageInputState> {
@@ -17,6 +19,14 @@ class ImageInputCubit extends Cubit<ImageInputState> {
     }on Exception catch(err){
       emit(ImageInputError(err));
     }
+  }
+
+  showMsgGallery() async{
+    emit(ImageInputShowingMsg(ImageInputEnum.gallery));
+  }
+
+  showMsgCamera() async{
+    emit(ImageInputShowingMsg(ImageInputEnum.camera));
   }
 
   getImageFromCamera() async {

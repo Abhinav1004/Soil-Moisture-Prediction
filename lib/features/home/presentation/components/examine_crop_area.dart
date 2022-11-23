@@ -3,20 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soil_moisture/core/constants/enums.dart';
 import 'package:soil_moisture/features/home/data/repository/image_input_repository.dart';
 import 'package:soil_moisture/features/home/presentation/bloc/image_input_cubit.dart';
+import 'package:soil_moisture/features/home/presentation/pages/photo_msg/photo_msg.dart';
 
 class ExamineCropArea extends StatelessWidget {
   const ExamineCropArea({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider(
-      create: (context) => ImageInputRepositoryImp(),
-        child: BlocProvider(
-          create: (context) => ImageInputCubit(context.read<ImageInputRepositoryImp>()),
-          lazy: false,
-          child: const ExamineCropAreaView(),
-        ),
-    );
+    return const ExamineCropAreaView();
   }
 }
 
@@ -37,6 +31,10 @@ class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
             "/examine",
             arguments: state.imageFile
           );
+        }else if(state is ImageInputShowingMsg){
+          PhotoMsgDialog.showDialog(context, state.type);
+        }else if(state is ImageInputCapturing){
+          Navigator.of(context).maybePop();
         }
       },
       child: Container(
@@ -149,10 +147,10 @@ class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
           onTap: (){
             switch (type) {
               case ImageInputEnum.camera:
-                context.read<ImageInputCubit>().getImageFromCamera();
+                context.read<ImageInputCubit>().showMsgCamera();
                 break;
               case ImageInputEnum.gallery:
-                context.read<ImageInputCubit>().getImageFromGallery();
+                context.read<ImageInputCubit>().showMsgGallery();
                 break;
             }
           },

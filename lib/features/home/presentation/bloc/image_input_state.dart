@@ -7,6 +7,12 @@ class ImageInputInitial extends ImageInputState {}
 
 class ImageInputCapturing extends ImageInputState {}
 
+class ImageInputShowingMsg extends ImageInputState {
+  final ImageInputEnum type;
+  ImageInputShowingMsg(this.type);
+}
+
+
 class ImageInputCaptured extends ImageInputState {
   final File imageFile;
   ImageInputCaptured(this.imageFile);
