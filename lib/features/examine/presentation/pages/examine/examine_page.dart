@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soil_moisture/features/examine/presentation/bloc/examine_cubit.dart';
+import 'package:soil_moisture/features/examine/presentation/pages/crop_search/crop_search_page.dart';
 import 'package:soil_moisture/features/examine/presentation/pages/management/management_dialog.dart';
 import 'package:soil_moisture/features/examine/presentation/pages/soil_not_found_dialog/soil_not_found_dialog.dart';
 
@@ -200,7 +201,9 @@ class ExaminePageView extends StatelessWidget {
                           }
                           return ElevatedButton(
                             onPressed: state.moisture.label.toLowerCase()=="none"?null: (){
-                              ManagementDialog.showDialog(context, state.moisture.label);
+                              // ManagementDialog.showDialog(context, state.moisture.label);
+                              // Navigator.of(context).pushNamed("/examine/crop");
+                              CropSearchBottomSheet.showDialog(context, state.moisture.label.toLowerCase());
                             }, 
                             style: ElevatedButton.styleFrom(
                               minimumSize: const Size(

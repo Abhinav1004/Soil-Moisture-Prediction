@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:soil_moisture/features/examine/presentation/bloc/recommed_crops_cubit.dart';
 import 'package:soil_moisture/features/home/data/repository/image_input_repository.dart';
 import 'package:soil_moisture/features/home/presentation/bloc/image_input_cubit.dart';
 
@@ -21,12 +22,15 @@ class MyApp extends StatelessWidget {
       create: (context) => ImageInputRepositoryImp(),
         child: BlocProvider(
           create: (context) => ImageInputCubit(context.read<ImageInputRepositoryImp>()),
-          child: MaterialApp(
-            title: 'Soil Moisture Detector',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
+          child: BlocProvider(
+            create: (context) => RecommedCropsCubit(),
+            child: MaterialApp(
+              title: 'Soil Moisture Detector',
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              onGenerateRoute: Routes.onGenerateRoute,
             ),
-            onGenerateRoute: Routes.onGenerateRoute,
           ),
         ),
     );
