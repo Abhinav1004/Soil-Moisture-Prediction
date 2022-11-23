@@ -12,8 +12,8 @@ class ExamineMlUseCase{
 
   call() async {
     String? res = await Tflite.loadModel(
-      model: "assets/model/mobilenet.tflite",
-      labels: "assets/model/labels.txt",
+      model: "assets/model/model_unquant.tflite",
+      labels: "assets/model/labels_unquant.txt",
       numThreads: 1, // defaults to 1
       isAsset: true, // defaults to true, set to false to load resources outside assets
       useGpuDelegate: false // defaults to false, set to true to use GPU delegate
@@ -31,7 +31,7 @@ class ExamineMlUseCase{
       asynch: true      // defaults to true
     );
 
-    debugPrint(recognitions.toString());
+    print(recognitions.toString());
 
     Tflite.close();
 
@@ -40,6 +40,8 @@ class ExamineMlUseCase{
     }
 
     List<ExamineMlModel> predictions = recognitions.map((e) => ExamineMlModel.fromMap(Map<String, dynamic>.from(e))).toList();
+
+    
 
     return predictions;
   }

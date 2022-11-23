@@ -1,0 +1,4 @@
+dry
+wet
+loamy
+regular
