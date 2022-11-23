@@ -1,0 +1,5 @@
+dry
+none
+regular
+soaked
+wet
