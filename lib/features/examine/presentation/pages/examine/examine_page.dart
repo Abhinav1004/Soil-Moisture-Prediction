@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soil_moisture/features/examine/presentation/bloc/examine_cubit.dart';
 import 'package:soil_moisture/features/examine/presentation/pages/management/management_dialog.dart';
+import 'package:soil_moisture/features/examine/presentation/pages/soil_not_found_dialog/soil_not_found_dialog.dart';
 
 import '../../../../../core/components/app_bar_custom_painter.dart';
 
@@ -82,7 +83,12 @@ class ExaminePageView extends StatelessWidget {
                       const SizedBox(
                         height: 27,
                       ),
-                      BlocBuilder<ExamineCubit, ExamineState>(
+                      BlocConsumer<ExamineCubit, ExamineState>(
+                        listener: (context, state) {
+                          if(state is ExamineDone && state.moisture.label.toLowerCase()=="none"){
+                            SoilNotFoundDialog.showDialog(context);
+                          }
+                        },
                         builder: (context, state) {
                           if(state is ExamineStarted){
                             return const CircularProgressIndicator();
