@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:soil_moisture/features/home/domain/repository/image_input_repository.dart';
+import 'package:soil_moisture/features/home/domain/usecase/crop_image_usecase.dart';
 
 import '../../../../core/constants/enums.dart';
 
@@ -33,7 +34,9 @@ class ImageInputCubit extends Cubit<ImageInputState> {
     emit(ImageInputCapturing());
     try{
       File imageFile = await imageInputRepository.getImageFromCamera();
-      emit(ImageInputCaptured(imageFile));
+      CropImageUsecase usecase = CropImageUsecase();
+      File croppedImage = await usecase(imageFile);
+      emit(ImageInputCaptured(croppedImage));
     }on Exception catch(err){
       emit(ImageInputError(err));
     }
