@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import '../../../../../core/extension/string_extension.dart';
 
 class ManagementDialog extends StatelessWidget {
-  const ManagementDialog({Key? key}) : super(key: key);
+  const ManagementDialog({Key? key, required this.moisture}) : super(key: key);
+  final String moisture;
 
-  static void showDialog(BuildContext context){
+  static void showDialog(BuildContext context, String moisture){
     showGeneralDialog(
       context: context, 
       pageBuilder: (context, animation, secondaryAnimation) {
@@ -13,11 +15,30 @@ class ManagementDialog extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(28)
           ),
-          child: const ManagementDialog()
+          child:  ManagementDialog(moisture: moisture,)
         );
       },
     );
   }
+
+  final managements = const {
+    "wet": [
+      "Raising planting areas – by piling up soil into a ridge and furrow arrangement or by creating raised beds with sides – lifts the root zone up above the general ground level and, hopefully, any saturated conditions. Raised areas are also the first to drain through once the weather does dry out, and as a result they warm up slightly earlier in spring.",
+      "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
+    ],
+    "dry": [
+      "Raising planting areas – by piling up soil into a ridge and furrow arrangement or by creating raised beds with sides – lifts the root zone up above the general ground level and, hopefully, any saturated conditions. Raised areas are also the first to drain through once the weather does dry out, and as a result they warm up slightly earlier in spring.",
+      "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
+    ],
+    "loamy": [
+      "Raising planting areas – by piling up soil into a ridge and furrow arrangement or by creating raised beds with sides – lifts the root zone up above the general ground level and, hopefully, any saturated conditions. Raised areas are also the first to drain through once the weather does dry out, and as a result they warm up slightly earlier in spring.",
+      "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
+    ],
+    "regular": [
+      "Raising planting areas – by piling up soil into a ridge and furrow arrangement or by creating raised beds with sides – lifts the root zone up above the general ground level and, hopefully, any saturated conditions. Raised areas are also the first to drain through once the weather does dry out, and as a result they warm up slightly earlier in spring.",
+      "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
+    ]
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +70,9 @@ class ManagementDialog extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            "High Moisture",
-            style: TextStyle(
+          Text(
+            moisture.capitalize(),
+            style: const TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w500,
               color: Color.fromRGBO(92, 92, 92, 1)
@@ -64,7 +85,7 @@ class ManagementDialog extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ListView.builder(
-                itemCount: 3,
+                itemCount: managements[moisture.toLowerCase()]?.length??0,
                 // primary: false,
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
@@ -72,17 +93,17 @@ class ManagementDialog extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 21),
                     child: Row(
-                      children: const [
-                        Icon(
+                      children:  [
+                        const Icon(
                           Icons.task_alt_sharp,
                           color: Color.fromRGBO(155, 155, 155, 1),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 21,
                         ),
                         Expanded(
                           child: Text(
-                            "Drain out water and dry the field for 7-10 days"
+                            managements["dry"]?[index]??""
                           ),
                         ),
                       ],
