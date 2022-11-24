@@ -12,7 +12,9 @@ class ExamineStarted extends ExamineState {
 
 class ExamineDone extends ExamineState {
   final ExamineMlModel moisture;
-  ExamineDone(this.moisture);
+  final List<ExamineMlModel> moisturesList;
+  final double perc;
+  ExamineDone(this.moisture, this.moisturesList, this.perc);
 }
 
 class ExamineError extends ExamineState {
