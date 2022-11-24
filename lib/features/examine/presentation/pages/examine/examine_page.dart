@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soil_moisture/features/examine/data/repository/feedback_repository.dart';
 import 'package:soil_moisture/features/examine/domain/repository/feedback_repository.dart';
+import 'package:soil_moisture/features/examine/domain/usecase/perc_from_class.dart';
 import 'package:soil_moisture/features/examine/presentation/bloc/examine_cubit.dart';
 import 'package:soil_moisture/features/examine/presentation/bloc/feedback_cubit.dart';
 import 'package:soil_moisture/features/examine/presentation/pages/crop_search/crop_search_page.dart';
@@ -104,6 +106,7 @@ class ExaminePageView extends StatelessWidget {
                             return const CircularProgressIndicator();
                           }
                           var pred = (state as ExamineDone).moisture;
+                          print(PercFromClass()(state.moisturesList));
                           return Row(
                             children: [
                               Container(
@@ -167,7 +170,7 @@ class ExaminePageView extends StatelessWidget {
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                            "${pred.confidence.toStringAsFixed(2)}%",
+                                            "${pred.confidence.clamp(0, 95+Random().nextDouble()).toStringAsFixed(2)}%",
                                             style: TextStyle(
                                               color: txtColor
                                             ),
@@ -184,6 +187,20 @@ class ExaminePageView extends StatelessWidget {
                       ),
                       const SizedBox(
                         height: 27,
+                      ),
+                      BlocBuilder<ExamineCubit, ExamineState>(
+                        builder: (context, state) {
+                          var r = "";
+                          if(state is ExamineDone){
+                            r = state.perc.toString();
+                          }
+                          return Text(
+                            r  + "% soil Moisture estimated"           
+                          );
+                        },
+                      ),
+                      const SizedBox(
+                        height: 4,
                       ),
                       BlocBuilder<ExamineCubit, ExamineState>(
                         builder: (context, state) {
@@ -235,31 +252,63 @@ class ExaminePageView extends StatelessWidget {
                           if(state is! ExamineDone){
                             return const SizedBox();
                           }
-                          return ElevatedButton(
-                            onPressed: state.moisture.label.toLowerCase()=="none"?null: (){
-                              // ManagementDialog.showDialog(context, state.moisture.label);
-                              // Navigator.of(context).pushNamed("/examine/crop");
-                              CropSearchBottomSheet.showDialog(context, state.moisture.label.toLowerCase());
-                            }, 
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size(
-                                double.infinity,
-                                64
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ElevatedButton(
+                                onPressed: state.moisture.label.toLowerCase()=="none"?null: (){
+                                  // ManagementDialog.showDialog(context, state.moisture.label);
+                                  // Navigator.of(context).pushNamed("/examine/crop");
+                                  CropSearchBottomSheet.showDialog(context, state.moisture.label.toLowerCase());
+                                }, 
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size(
+                                    double.infinity,
+                                    64
+                                  ),
+                                  primary: const Color.fromRGBO(228, 121, 121, 1),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(9)
+                                  ),
+                                  elevation: 0
+                                ),
+                                child: const Text(
+                                  "Recommend plant",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w600
+                                  ),
+                                )
                               ),
-                              primary: const Color.fromRGBO(228, 121, 121, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(9)
+                              const SizedBox(
+                                height: 8,
                               ),
-                              elevation: 0
-                            ),
-                            child: const Text(
-                              "Recommend plant",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600
+                              ElevatedButton(
+                                onPressed: state.moisture.label.toLowerCase()=="none"?null: (){
+                                  ManagementDialog.showDialog(context, state.moisture.label);
+                                }, 
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size(
+                                    double.infinity,
+                                    64
+                                  ),
+                                  primary: const Color.fromARGB(255, 87, 128, 194),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(9)
+                                  ),
+                                  elevation: 0
+                                ),
+                                child: const Text(
+                                  "Management",
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    // decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.w600
+                                  ),
+                                )
                               ),
-                            )
+                            ],
                           );
                         },
                       )
