@@ -15,13 +15,13 @@ class RecommedCropsCubit extends Cubit<RecommedCropsState> {
       "Potato"
     ],
     "wet":[
-      "CardinalFlower",
+      "Cardinal Flower",
       "Salix",
-      "PineOak",
-      "royalFern"
+      "Pine Oak",
+      "Royal Fern"
     ],
     "soaked":[
-      "marshMangold",
+      "Marsh Mangold",
       "Hibiscus",
       "Daylily",
       "Iris"
@@ -41,11 +41,11 @@ class RecommedCropsCubit extends Cubit<RecommedCropsState> {
     "sage": "Laterite Soil",
     "grasses": "Red loamy Soil",
     "Potato": "Red yellow soil",
-    "CardinalFlower": "Coastal Alluvial Soil",
+    "Cardinal Flower": "Coastal Alluvial Soil",
     "Salix": "Red Sandy Soil",
-    "PineOak": "Red yellow soil",
-    "royalFern": "Coastal Alluvial Soil",
-    "marshMangold": "Laterite Soil",
+    "Pine Oak": "Red yellow soil",
+    "Royal Fern": "Coastal Alluvial Soil",
+    "Marsh Mangold": "Laterite Soil",
     "Hibiscus": "Red loamy Soil",
     "Daylily": "Red yellow soil",
     "Iris": "Red Sandy Soil",

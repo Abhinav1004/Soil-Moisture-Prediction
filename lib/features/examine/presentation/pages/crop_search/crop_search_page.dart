@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soil_moisture/core/components/app_bar_custom_painter.dart';
 import 'package:soil_moisture/features/examine/presentation/bloc/recommed_crops_cubit.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CropSearchBottomSheet extends StatefulWidget {
   const CropSearchBottomSheet({Key? key, required this.moisture}) : super(key: key);
@@ -45,6 +46,12 @@ class _CropSearchBottomSheetState extends State<CropSearchBottomSheet> {
     "Red loamy Soil",
     "Red yellow soil",
   ];
+
+  void wikiFunc(String query){
+    const baseUrl = "https://en.wikipedia.org/wiki/";
+    final url = baseUrl + query.toLowerCase().split(" ").join("_");
+    launchUrl(Uri.parse(url));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +156,9 @@ class _CropSearchBottomSheetState extends State<CropSearchBottomSheet> {
                     // primary: false,
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          wikiFunc(state.result[index]);
+                        },
                         borderRadius: BorderRadius.circular(10),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10),
