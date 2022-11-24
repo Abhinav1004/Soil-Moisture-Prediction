@@ -27,16 +27,15 @@ class ManagementDialog extends StatelessWidget {
       "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
     ],
     "dry": [
-      "Raising planting areas – by piling up soil into a ridge and furrow arrangement or by creating raised beds with sides – lifts the root zone up above the general ground level and, hopefully, any saturated conditions. Raised areas are also the first to drain through once the weather does dry out, and as a result they warm up slightly earlier in spring.",
-      "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
+      "Mushroom Compost – helps to retain moisture while breaking down in the soil.",
+      "apply a deep watering to the dry soil before applying ingredients. This will help to retain moisture in the lower levels of soil."
     ],
-    "loamy": [
+    "soaked": [
       "Raising planting areas – by piling up soil into a ridge and furrow arrangement or by creating raised beds with sides – lifts the root zone up above the general ground level and, hopefully, any saturated conditions. Raised areas are also the first to drain through once the weather does dry out, and as a result they warm up slightly earlier in spring.",
       "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
     ],
     "regular": [
-      "Raising planting areas – by piling up soil into a ridge and furrow arrangement or by creating raised beds with sides – lifts the root zone up above the general ground level and, hopefully, any saturated conditions. Raised areas are also the first to drain through once the weather does dry out, and as a result they warm up slightly earlier in spring.",
-      "When rainwater floods into the same area time and again, a little light geoengineering may be the solution. Use berms – mounds of soil – to hold back the water or divert it elsewhere."
+      "Almost all crops grows on this. In case your farming rice, apply a deep watering to the dry soil before applying ingredients."
     ]
   };
 
