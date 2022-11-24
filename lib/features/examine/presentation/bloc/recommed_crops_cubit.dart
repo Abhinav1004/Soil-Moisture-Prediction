@@ -21,7 +21,7 @@ class RecommedCropsCubit extends Cubit<RecommedCropsState> {
       "Royal Fern"
     ],
     "soaked":[
-      "Marsh Mangold",
+      "Marsh Marigold",
       "Hibiscus",
       "Daylily",
       "Iris"
@@ -45,7 +45,7 @@ class RecommedCropsCubit extends Cubit<RecommedCropsState> {
     "Salix": "Red Sandy Soil",
     "Pine Oak": "Red yellow soil",
     "Royal Fern": "Coastal Alluvial Soil",
-    "Marsh Mangold": "Laterite Soil",
+    "Marsh Marigold": "Laterite Soil",
     "Hibiscus": "Red loamy Soil",
     "Daylily": "Red yellow soil",
     "Iris": "Red Sandy Soil",
