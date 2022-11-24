@@ -2,7 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:soil_moisture/features/examine/data/repository/feedback_repository.dart';
+import 'package:soil_moisture/features/examine/domain/repository/feedback_repository.dart';
 import 'package:soil_moisture/features/examine/presentation/bloc/examine_cubit.dart';
+import 'package:soil_moisture/features/examine/presentation/bloc/feedback_cubit.dart';
 import 'package:soil_moisture/features/examine/presentation/pages/crop_search/crop_search_page.dart';
 import 'package:soil_moisture/features/examine/presentation/pages/management/management_dialog.dart';
 import 'package:soil_moisture/features/examine/presentation/pages/soil_not_found_dialog/soil_not_found_dialog.dart';
@@ -19,7 +22,13 @@ class ExaminePage extends StatelessWidget {
       lazy: false,
       create: (context) => ExamineCubit()
         ..startExamine(imageFile),
-      child: ExaminePageView(imageFile: imageFile),
+      child: RepositoryProvider(
+        create: (context) => FeedbackRepositoryImp(),
+          child: BlocProvider(
+              create: (context) => FeedbackCubit(context.read<FeedbackRepositoryImp>()),
+              child: ExaminePageView(imageFile: imageFile),
+            ),
+      ),
     );
   }
 }
@@ -176,20 +185,47 @@ class ExaminePageView extends StatelessWidget {
                       const SizedBox(
                         height: 27,
                       ),
-                      Row(
-                        children: [
-                          const Text(
-                            "Was it helful?"
-                          ),
-                          IconButton(
-                            onPressed: (){}, 
-                            icon: const Icon(Icons.thumb_up, color: Colors.green,)
-                          ),
-                          IconButton(
-                            onPressed: (){}, 
-                            icon: const Icon(Icons.thumb_down, color: Colors.red,)
-                          )
-                        ],
+                      BlocBuilder<ExamineCubit, ExamineState>(
+                        builder: (context, state) {
+                          if(state is !ExamineDone){
+                            return const SizedBox();
+                          }
+                          return BlocBuilder<FeedbackCubit, FeedbackState>(
+                            builder: (context, feedbackstate) {
+                              int vote = -1;
+                              if(feedbackstate is FeedbackSent ){
+                                vote = feedbackstate.wasHelpfull? 1: 0;
+                              }else if(feedbackstate is FeedbackSending){
+                                vote = feedbackstate.wasHelpfull? 1: 0;
+                              }
+                              return Row(
+                                children: [
+                                  const Text(
+                                    "Was it helful?"
+                                  ),
+                                  IconButton(
+                                    onPressed: (){
+                                      context.read<FeedbackCubit>().upVoteFeedback(imageFile, state.moisture.label);
+                                    }, 
+                                    icon: Icon(
+                                      vote==1? Icons.thumb_up: Icons.thumb_up_outlined, 
+                                      color: Colors.green,
+                                    )
+                                  ),
+                                  IconButton(
+                                    onPressed: (){
+                                      context.read<FeedbackCubit>().downVoteFeedback(imageFile, state.moisture.label);
+                                    }, 
+                                    icon: Icon(
+                                      vote==0? Icons.thumb_down: Icons.thumb_down_outlined, 
+                                      color: Colors.red,
+                                    )
+                                  )
+                                ],
+                              );
+                            },
+                          );
+                        },
                       ),
                       const SizedBox(
                         height: 27,
@@ -217,7 +253,7 @@ class ExaminePageView extends StatelessWidget {
                               elevation: 0
                             ),
                             child: const Text(
-                              "Management",
+                              "Recommend plant",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 13,

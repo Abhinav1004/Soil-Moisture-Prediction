@@ -38,6 +38,8 @@ dependencies:
   tflite: ^1.1.2
   image_picker: ^0.8.6
   image_cropper: ^3.0.1
+  url_launcher: ^6.1.7
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
