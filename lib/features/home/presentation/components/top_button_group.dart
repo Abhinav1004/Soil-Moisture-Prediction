@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TopButtonGroup extends StatefulWidget {
   const TopButtonGroup({Key? key}) : super(key: key);
@@ -21,8 +23,11 @@ class _TopButtonGroupState extends State<TopButtonGroup> {
     Navigator.of(context).pushNamed("/reading/pest");
   }
 
+
   @override
   Widget build(BuildContext context) {
+    var local = AppLocalizations.of(context);
+    
     return Container(
       height: 134,
       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -42,15 +47,15 @@ class _TopButtonGroupState extends State<TopButtonGroup> {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(
           children: [
-            _buildButton("assets/icons/noto_potted-plant.png", "Soil Type", onSoilClick),
+            _buildButton("assets/icons/noto_potted-plant.png", local.soil_type, onSoilClick),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/fluent-emoji_bug.png", "Soil Insect", onPestClick),
+            _buildButton("assets/icons/fluent-emoji_bug.png", local.soil_insect, onPestClick),
             const VerticalDivider(
               width: 1,
             ),
-            _buildButton("assets/icons/noto_sheaf-of-rice.png", "Soil Plants", onPlantClick)
+            _buildButton("assets/icons/noto_sheaf-of-rice.png", local.soil_plants, onPlantClick)
           ],
         ),
       ),

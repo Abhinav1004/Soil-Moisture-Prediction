@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soil_moisture/core/custom_icon/botton_nav_icons.dart';
 import 'package:soil_moisture/core/components/app_bar_custom_painter.dart';
+import 'package:soil_moisture/features/home/presentation/bloc/language_cubit.dart';
 import 'package:soil_moisture/features/home/presentation/components/examine_crop_area.dart';
 import 'package:soil_moisture/features/home/presentation/components/top_button_group.dart';
 
@@ -28,6 +30,17 @@ class HomePage extends StatelessWidget {
                   bottom: 0,
                   child: TopButtonGroup()
                 ),
+                Positioned(
+                  right: 16,
+                  top: 60,
+                  child: IconButton(
+                    color: Colors.white,
+                    onPressed: (){
+                      context.read<LanguageCubit>().changeLanguage();
+                    }, 
+                    icon: const Icon(Icons.translate)
+                  ),
+                )
               ],
             ),
           ),

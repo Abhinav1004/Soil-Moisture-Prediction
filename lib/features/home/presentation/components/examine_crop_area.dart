@@ -4,6 +4,7 @@ import 'package:soil_moisture/core/constants/enums.dart';
 import 'package:soil_moisture/features/home/data/repository/image_input_repository.dart';
 import 'package:soil_moisture/features/home/presentation/bloc/image_input_cubit.dart';
 import 'package:soil_moisture/features/home/presentation/pages/photo_msg/photo_msg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ExamineCropArea extends StatelessWidget {
   const ExamineCropArea({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class ExamineCropAreaView extends StatefulWidget {
 class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
   @override
   Widget build(BuildContext context) {
+    var locale = AppLocalizations.of(context);
     return BlocListener<ImageInputCubit, ImageInputState>(
       listener: (context, state) {
         if(state is ImageInputCaptured){
@@ -60,9 +62,9 @@ class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
                         const SizedBox(
                           height: 5,
                         ),
-                        const Text(
-                          "Take a picture",
-                          style: TextStyle(
+                        Text(
+                          locale.take_a_picture,
+                          style: const TextStyle(
                             color: Color.fromRGBO(91, 91, 91, 1),
                             fontSize: 10,
                             fontWeight: FontWeight.w500
@@ -83,9 +85,9 @@ class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
                         const SizedBox(
                           height: 8,
                         ),
-                        const Text(
-                          "Get The result",
-                          style: TextStyle(
+                        Text(
+                          locale.get_the_result,
+                          style: const TextStyle(
                             color: Color.fromRGBO(91, 91, 91, 1),
                             fontSize: 10,
                             fontWeight: FontWeight.w500
@@ -103,9 +105,9 @@ class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
                         const SizedBox(
                           height: 8,
                         ),
-                        const Text(
-                          "Get diagnosis",
-                          style: TextStyle(
+                        Text(
+                          locale.get_diagnosis,
+                          style: const TextStyle(
                             color: Color.fromRGBO(91, 91, 91, 1),
                             fontSize: 10,
                             fontWeight: FontWeight.w500
@@ -120,11 +122,11 @@ class _ExamineCropAreaViewState extends State<ExamineCropAreaView> {
                 ),
                 Row(
                   children: [
-                    _buildButton("assets/icons/bi_camera-fill.png", "Take Photo", ImageInputEnum.camera),
+                    _buildButton("assets/icons/bi_camera-fill.png", locale.take_photo, ImageInputEnum.camera),
                     const SizedBox(
                       width: 16,
                     ),
-                    _buildButton("assets/icons/bi_file-earmark-image-fill.png", "Upload Photo", ImageInputEnum.gallery)
+                    _buildButton("assets/icons/bi_file-earmark-image-fill.png", locale.upload_photo, ImageInputEnum.gallery)
                   ],
                 ),
                 const SizedBox(
