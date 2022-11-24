@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           child: BlocProvider(
             create: (context) => RecommedCropsCubit(),
             child: MaterialApp(
-              title: 'Soil Moisture Detector',
+              title: 'Terreno',
               theme: ThemeData(
                 primarySwatch: Colors.blue,
               ),
