@@ -54,5 +54,7 @@
 		<string>en</string>
 		<string>hi</string>
 	</array>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>
