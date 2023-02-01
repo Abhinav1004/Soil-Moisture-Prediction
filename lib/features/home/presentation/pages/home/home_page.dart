@@ -5,6 +5,7 @@ import 'package:soil_moisture/core/components/app_bar_custom_painter.dart';
 import 'package:soil_moisture/features/home/presentation/bloc/language_cubit.dart';
 import 'package:soil_moisture/features/home/presentation/components/examine_crop_area.dart';
 import 'package:soil_moisture/features/home/presentation/components/top_button_group.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,11 +48,11 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 31,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              "Examine your crops",
-              style: TextStyle(
+              AppLocalizations.of(context).examine_your_crops,
+              style: const TextStyle(
                 color: Color.fromRGBO(82, 82, 82, 1),
                 fontSize: 14,
                 fontWeight: FontWeight.w500

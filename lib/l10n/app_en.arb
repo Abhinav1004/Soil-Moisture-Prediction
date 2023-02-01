@@ -6,5 +6,6 @@
   "get_the_result": "Get The result",
   "get_diagnosis": "Get Diagnosis",
   "take_photo": "Take Photo",
-  "upload_photo": "Upload Photo"
+  "upload_photo": "Upload Photo",
+  "examine_your_crops" : "Examine your crops"
 }
