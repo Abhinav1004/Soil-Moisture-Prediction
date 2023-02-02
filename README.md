@@ -57,9 +57,13 @@
 
 ## About The Project
 
+<!-- https://user-images.githubusercontent.com/52542371/216338317-085bf14d-a013-402e-82e5-6a55e23f90ea.mp4
+
+https://user-images.githubusercontent.com/52542371/216338346-68d8f1eb-fb0f-46bc-98cd-09e9a0200fcd.MP4 -->
+
 Scanning Dry Soil          |  Regional App Internalisation
 :-------------------------:|:------------------------------:
-![](https://user-images.githubusercontent.com/52542371/216171051-a487c6c8-a381-4f25-80ef-71c959da6e3e.mov)  |  ![](https://user-images.githubusercontent.com/52542371/216171946-a5f9de71-1595-4172-a181-cbf7c8b2276c.mov)
+![](https://user-images.githubusercontent.com/52542371/216338317-085bf14d-a013-402e-82e5-6a55e23f90ea.mp4)  |  ![](https://user-images.githubusercontent.com/52542371/216338346-68d8f1eb-fb0f-46bc-98cd-09e9a0200fcd.MP4)
 
 - Mobile application which replaces teh traditional hardware sensor to predict moisture content in soil
 - The applicaiton works on AI Technology to detect moisture content using soil image along wiht many other helpful recommendations
