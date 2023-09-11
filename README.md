@@ -12,7 +12,7 @@
     <img src="https://user-images.githubusercontent.com/52542371/216172655-9b650e06-2828-434e-bb9c-ed66d977852e.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Soil Moisture Detect: Using Deep Learning - Frontend</h3>
+  <h3 align="center">Soil Moisture and Crop Prediction : Using Deep Learning - Frontend</h3>
 
   <p align="center">
     App to monitor soil moisture using a standard digital image and machine learning technology.
@@ -37,7 +37,7 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#about-the-project">About The Project</a></li>
-        <li><a href="#benifit-of-the-project">Benifit of the Project</a></li>
+        <li><a href="#benefit-of-the-project">Benefit of the Project</a></li>
       </ul>
     </li>
     <li>
@@ -66,7 +66,7 @@ https://user-images.githubusercontent.com/52542371/216345622-55e1a257-b947-4e23-
 - Mobile application which replaces teh traditional hardware sensor to predict moisture content in soil
 - The applicaiton works on AI Technology to detect moisture content using soil image along wiht many other helpful recommendations
 
-## Benifit of the Project
+## Benefit of the Project
 
 - Categorising the soil into dry, wet, soaked, regular type based on the moisture content
 - Predicting moisture content of the soil
