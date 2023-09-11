@@ -12,7 +12,7 @@
     <img src="https://user-images.githubusercontent.com/52542371/216172655-9b650e06-2828-434e-bb9c-ed66d977852e.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Soil Moisture and Crop Prediction : Using Deep Learning - Frontend</h3>
+  <h3 align="center">Soil Moisture and Crop Prediction : Using Deep Learning </h3>
 
   <p align="center">
     App to monitor soil moisture using a standard digital image and machine learning technology.
